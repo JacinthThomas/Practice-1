@@ -34,7 +34,18 @@
             mid.position.y = 128;
             stage.addChild(mid);
 
+            
+
+            requestAnimationFrame(update);
+        }
+
+        function update() {
+            far.position.x -= 0.128;
+            mid.position.x -= 0.64;
+
             renderer.render(stage);
+
+            requestAnimationFrame(update);
         }
       </script>
 </body>
