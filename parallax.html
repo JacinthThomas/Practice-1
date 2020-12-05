@@ -14,6 +14,8 @@
         <canvas id="game-canvas" width="512" height="384"></canvas>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
+      <script src="Far.js"></script>
+      <script src="Mid.js"></script>
       <script>
         function init() {
             stage = new PIXI.Container();
@@ -22,16 +24,11 @@
                 384,
                 {view:document.getElementById("game-canvas")}
             );
-            var farTexture = PIXI.Texture.fromImage("images/bg-far.png");
-            far = new PIXI.Sprite(farTexture);
-            far.position.x = 0;
-            far.position.y = 0;
+
+            far = new Far();
             stage.addChild(far);
 
-            var midTexture = PIXI.Texture.fromImage("images/bg-mid.png");
-            mid = new PIXI.Sprite(midTexture);
-            mid.position.x = 0;
-            mid.position.y = 128;
+            mid = new Mid();
             stage.addChild(mid);
 
             
@@ -40,8 +37,8 @@
         }
 
         function update() {
-            far.position.x -= 0.128;
-            mid.position.x -= 0.64;
+            far.update();
+            mid.update();
 
             renderer.render(stage);
 
